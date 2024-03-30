@@ -6,12 +6,23 @@ of the application.
 
 ## General Overview
 - Programmed in **Java** with the support of **Spring**;
-- It's integrated with a **MySQL** database;
+- It's integrated with an embedded database (**H2**) and with a **MySQL** database;
 - Uses **Flyway** for automated database migrations and versioning;
 - Follows a **DDD (Domain Driven Design)** architecture.
 
 ## Getting Started
 ### Development Environment Setup
+### Installation
+```bash
+$ mvn clean install
+```
+### Run
+```bash
+$ mvn spring-boot:run
+```
+Default page: http://localhost:8080/api/roles
+
+## Run with MySQL database:
 ### Run Database
 ```bash
 $ docker-compose up -d
@@ -22,9 +33,8 @@ $ mvn clean install
 ```
 ### Run
 ```bash
-$ mvn spring-boot:run -"Dspring-boot.run.profiles"=local
+$ mvn spring-boot:run -"Dspring-boot.run.profiles"=mysql -Pmysql
 ```
-Default page: http://localhost:8080/api/roles
 
 ## How does Flyway work:
 Spring will inject automatically into Flyway it's database configuration from the datasource property inside _application.yml_.
