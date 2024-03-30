@@ -1,3 +1,5 @@
 /.idea/
 /target/
 /mysql-data/
+/*.mv.db
+/*.lock.db
